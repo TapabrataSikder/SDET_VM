@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                dir('Cucumber_BBD') {
+                dir('Cucumber_selenium') {
                     bat 'mvn clean'
                 }
             }
@@ -16,7 +16,7 @@ pipeline {
  
         stage('Compile') {
             steps {
-                dir('Cucumber_BBD') {
+                dir('Cucumber_selenium') {
                     bat 'mvn compile'
                 }
             }
@@ -24,7 +24,7 @@ pipeline {
  
         stage('Test') {
             steps {
-                dir('Cucumber_BBD') {
+                dir('Cucumber_selenium') {
                     bat 'mvn test'
                 }
             }
@@ -32,7 +32,7 @@ pipeline {
  
         stage('Package') {
             steps {
-                dir('Cucumber_BBD') {
+                dir('Cucumber_selenium') {
                     bat 'mvn package'
                 }
             }
@@ -40,7 +40,7 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                bat 'docker build -t cucumber-framework Cucumber_BBD'
+                bat 'docker build -t cucumber-framework Cucumber_selenium'
             }
         }
 
