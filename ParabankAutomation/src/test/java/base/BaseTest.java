@@ -1,0 +1,38 @@
+package base;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
+
+import utilities.ConfigReader;
+
+@Listeners(utilities.TestListener.class)
+public class BaseTest {
+	public WebDriver driver;
+	
+	@BeforeMethod
+	public void setup() throws Exception {
+
+		driver = new EdgeDriver();
+        
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        String url = ConfigReader.getProperty("appurl");
+        driver.get(url);
+	}
+	
+	
+//	@AfterMethod
+//	public void tearDown() {
+//		if(driver != null) {
+//			driver.quit();
+//		}
+//	}
+
+}
