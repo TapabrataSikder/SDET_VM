@@ -27,7 +27,7 @@ public class BaseTest {
 		options.addArguments("--no-sandbox");   
 		options.addArguments("--disable-dev-shm-usage");
 
-		driver = new EdgeDriver();
+		driver = new EdgeDriver(options);
 //		driver = new ChromeDriver();
 				
         driver.manage().window().maximize();

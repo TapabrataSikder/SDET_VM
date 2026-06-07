@@ -1,14 +1,13 @@
 # 1. Use an official Maven image with Java 17
-FROM maven:3.8.5-openjdk-17
+FROM maven:3.8.5-openjdk-17-slim
 
-# 2. Install necessary dependencies for Chrome
+# Install dependencies for Microsoft Edge
 RUN apt-get update && apt-get install -y \
     wget \
     gnupg \
-    unzip \
-    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-    && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list \
-    && apt-get update && apt-get install -y google-chrome-stable \
+    && wget -qO - https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /usr/share/keyrings/microsoft.gpg \
+    && echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge.list \
+    && apt-get update && apt-get install -y microsoft-edge-stable \
     && apt-get clean
 
 # 3. Set the working directory inside the container
