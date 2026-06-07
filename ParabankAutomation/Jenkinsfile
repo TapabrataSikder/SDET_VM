@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                // Ensure your repo URL is correct
+                git 'https://github.com/TapabrataSikder/wipro_selenium_java_Apr_2026.git'
+            }
+        }
+        stage('Docker Build & Run') {
+            steps {
+                // Execute the same commands that worked in your CMD
+                bat 'docker build -t parabank-automation .'
+                bat 'docker run --rm parabank-automation'
+            }
+        }
+    }
+}

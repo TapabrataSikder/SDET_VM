@@ -1,6 +1,7 @@
 package base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.edge.EdgeOptions;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
@@ -21,6 +22,10 @@ public class BaseTest {
 	
 	@BeforeMethod
 	public void setup() throws Exception {
+		EdgeOptions options = new EdgeOptions();
+		options.addArguments("--headless=new");
+		options.addArguments("--no-sandbox");   
+		options.addArguments("--disable-dev-shm-usage");
 
 		driver = new EdgeDriver();
 //		driver = new ChromeDriver();
