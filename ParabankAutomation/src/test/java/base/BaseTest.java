@@ -22,8 +22,8 @@ public class BaseTest {
 	@BeforeMethod
 	public void setup() throws Exception {
 
-//		driver = new EdgeDriver();
-		driver = new ChromeDriver();
+		driver = new EdgeDriver();
+//		driver = new ChromeDriver();
 				
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
