@@ -26,19 +26,17 @@ public class BaseTest {
 	    options.addArguments("--headless=new");
 	    options.addArguments("--no-sandbox");   
 	    options.addArguments("--disable-dev-shm-usage");
-	    // ADD THIS LINE:
 	    options.addArguments("--disable-gpu"); 
 	    options.addArguments("--remote-allow-origins=*");
+	    options.addArguments("--user-data-dir=C:\\Users\\wprjavanguser\\AppData\\Local\\Temp\\EdgeProfile");
 
+	    // Remove the duplicate driver instantiation below:
 	    driver = new EdgeDriver(options);
-
-		driver = new EdgeDriver(options);
-//		driver = new ChromeDriver();
-				
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        String url = ConfigReader.getProperty("appurl");
-        driver.get(url);
+					
+	    driver.manage().window().maximize();
+	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	    String url = ConfigReader.getProperty("appurl");
+	    driver.get(url);
 	}
 	
 	public static WebDriver getDriver() {
