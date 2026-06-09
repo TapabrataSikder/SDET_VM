@@ -4,7 +4,7 @@
             <class name="testcases.RegistrationTest"/>
     		<class name="testcases.LoginTest"/>
     		<class name="testcases.OpenAccountTest"/>
-    		<class name="testcases.AccountOverviewTest"/> 
+    		<class name="testcases.AccountOverviewTest"></class> 
     		<class name="testcases.TransferFundsTest"/>
     		<class name="testcases.BillPayTest"/>
     		<class name="testcases.LogoutTest"/>
