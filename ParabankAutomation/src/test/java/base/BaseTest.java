@@ -23,9 +23,14 @@ public class BaseTest {
 	@BeforeMethod
 	public void setup() throws Exception {
 		EdgeOptions options = new EdgeOptions();
-		options.addArguments("--headless=new");
-		options.addArguments("--no-sandbox");   
-		options.addArguments("--disable-dev-shm-usage");
+	    options.addArguments("--headless=new");
+	    options.addArguments("--no-sandbox");   
+	    options.addArguments("--disable-dev-shm-usage");
+	    // ADD THIS LINE:
+	    options.addArguments("--disable-gpu"); 
+	    options.addArguments("--remote-allow-origins=*");
+
+	    driver = new EdgeDriver(options);
 
 		driver = new EdgeDriver(options);
 //		driver = new ChromeDriver();
